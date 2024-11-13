@@ -25,3 +25,4 @@ if(passengerAge > 65){
 // Output del prezzo finale
 ticketPrice = priceCalculation.toFixed(2);
 console.log(`Il prezzo del biglietto è: ${ticketPrice}€`);
+alert(`Il prezzo del biglietto è: ${ticketPrice}€`)
