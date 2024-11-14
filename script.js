@@ -5,24 +5,28 @@
 // - va applicato uno sconto del 40% per gli over 65.
 // - L’output del prezzo finale va messo fuori in forma umana (con massimo due decimali, per indicare centesimi sul prezzo). Questo richiederà un minimo di ricerca.
 
-const kmToDestination = prompt("Quanti KM devi percorrere?");
-const passengerAge = prompt("Qual\'è l\'età del passeggero?");
+// Dichiaro le variabili
 const pricePerKm = 0.21;
 const minorDiscount = 20;
 const over65Discount = 40;
-let ticketPrice;
-let priceCalculation;
-let totalKmPrice = kmToDestination * pricePerKm;
+let ticketPrice, message;
 
+// Mostro i prompt
+const kmToDestination = prompt("Quanti KM devi percorrere?");
+const passengerAge = prompt("Qual\'è l\'età del passeggero?");
+
+// Calcolo il prezzo del biglietto base
+ticketPrice = kmToDestination * pricePerKm;
+
+// Applico le scontistiche (se dovute)
 if(passengerAge > 65){
-  priceCalculation = (totalKmPrice / 100) * (100 - over65Discount);
+  ticketPrice = (ticketPrice / 100) * (100 - over65Discount);
 } else if (passengerAge < 18){
-  priceCalculation = (totalKmPrice / 100) * (100 - minorDiscount);
-} else {
-  priceCalculation = totalKmPrice;
+  ticketPrice = (ticketPrice / 100) * (100 - minorDiscount);
 }
 
 // Output del prezzo finale
-ticketPrice = priceCalculation.toFixed(2);
-console.log(`Il prezzo del biglietto è: ${ticketPrice}€`);
-alert(`Il prezzo del biglietto è: ${ticketPrice}€`)
+message = `Il prezzo del biglietto è: ${ticketPrice.toFixed(2)}€`;
+console.log(message);
+
+alert(message);
